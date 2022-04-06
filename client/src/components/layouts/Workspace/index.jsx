@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
 import { Route, Router, useNavigate } from 'react-router-dom';
-import { Channels, Chats, Header, MenuScroll, ProfileImg, RightMenu, WorkspaceName, Workspaces, WorkspaceWrapper } from './styles';
+import { Channels, Chats, Header, LogOutButton, MenuScroll, ProfileImg, ProfileModal, RightMenu, WorkspaceName, Workspaces, WorkspaceWrapper } from './styles';
 import Menu from '../../memu'
 import gravartar from 'gravatar';
 
@@ -33,7 +33,17 @@ const WorkSpace = () => {
                 <RightMenu>
                     <span onClick={onClickUserProfile}>
                         <ProfileImg src={gravartar.url("test", { s: "28px", d: "retro"})} alt="nickname" />
-                        {showUserMenu && <Menu>프로필 메뉴</Menu>}
+                        {showUserMenu &&
+                            <Menu style={{right: 0, top:38}} show={showUserMenu} onCloseModal={onClickUserProfile}>
+                                <ProfileModal>
+                                    <img scr={gravartar.url("test", {s:"36px", d:"radio"})} alt={"nickname"} />
+                                    <div>
+                                        <span id="profile-name">nickname</span>
+                                        <span id="profile-active">active</span>
+                                    </div>
+                                </ProfileModal>
+                                <LogOutButton onClick={onLogoutHandler}>로그아웃</LogOutButton>
+                            </Menu>}
                     </span>
                 </RightMenu>
             </Header>
