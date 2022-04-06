@@ -9,6 +9,7 @@ import {
 
 import LandingPage from './components/views/LandingPage/LandingPage';
 import LoginPage from './components/views/LoginPage/LoginPages';
+import SignUp from './components/views/SignUpPage';
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
 import Auth from './hoc/auth';
 
@@ -44,6 +45,8 @@ function App() {
             <Route exact path="/login" element={Auth(LoginPage, false)}>
             </Route>
             <Route path="/register" element={Auth(RegisterPage, false)}>
+            </Route>
+            <Route path="/signup" element={Auth(SignUp, false)}>
             </Route>
           </Routes>
         </Fragment>
