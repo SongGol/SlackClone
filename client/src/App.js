@@ -11,8 +11,10 @@ import LandingPage from './components/views/LandingPage/LandingPage';
 import LoginPage from './components/views/LoginPage/LoginPages';
 import SignUp from './components/views/SignUpPage';
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
-import WorkSpace from './components/layouts/Workspace';
+import Channel from './components/views/Channel';
+import DirectMessasge from './components/views/DirectMessage';
 import Auth from './hoc/auth';
+import WorkSpace from './components/layouts/Workspace';
 
 function App() {
   return (
@@ -35,7 +37,11 @@ function App() {
             </Route>
             <Route path="/signup" element={Auth(SignUp, false)}>
             </Route>
-            <Route path="/workspace/channel" element={Auth(WorkSpace, true)}>
+            <Route path="/workspace" element={Auth(WorkSpace, true)}>
+            </Route>
+            <Route path="/workspace/channel" element={Auth(Channel, true)}>
+            </Route>
+            <Route path="/workspace/dm" element={Auth(DirectMessasge, true)}>
             </Route>
           </Routes>
         </Fragment>
