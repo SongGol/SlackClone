@@ -32,7 +32,7 @@ const LoginPage = () => {
             dispatch(loginUser(body))
                 .then(response => {
                     if (response.payload.loginSuccess) {
-                        navigate('/');
+                        navigate('/workspace/channel');
                     } else {
                         alert('Error');
                     }

@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.19.3",
     "axios": "^0.26.1",
+    "gravatar": "^1.8.2",
     "http-proxy-middleware": "^2.0.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
