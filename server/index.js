@@ -89,6 +89,13 @@ app.get('/api/users/auth', auth, (req, res) => {
     });
 });
 
+app.get('/api/users/workspace', auth, (req, res) => {
+    res.status(200).json({
+        success: true,
+        workspace: req.user.workspace,
+    });
+});
+
 app.get('/api/users/logout', auth, (req, res) => {
     User.findOneAndUpdate({_id: req.user.id},
         { token: "" },

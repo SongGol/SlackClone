@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AUTH_USER, LOGIN_USER, REGISTER_USER } from './types';
+import { AUTH_USER, LOGIN_USER, REGISTER_USER, WORKSPACE } from './types';
 
 export const loginUser = (dataToSubmit) => {
     const request = axios.post('/api/users/login', dataToSubmit)
@@ -27,6 +27,16 @@ export const getAuth = () => {
 
     return {
         type: AUTH_USER,
+        payload: request
+    };
+};
+
+export const getWorkspace = () => {
+    const request = axios.get('api/users/workspace')
+        .then(response => response.data);
+
+    return {
+        type: WORKSPACE,
         payload: request
     };
 };

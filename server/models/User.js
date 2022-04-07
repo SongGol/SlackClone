@@ -3,6 +3,20 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const saltRounds = 10
 
+const workspaceSchema = mongoose.Schema({
+    id: {
+        type: String,
+        unique: 1,
+    },
+    name: {
+      type: String,
+    },
+    chats: [
+        {type: String}
+    ],
+    users: [{type: String}]
+});
+
 const userSchema = mongoose.Schema({
     name: {
         type: String,
@@ -32,6 +46,7 @@ const userSchema = mongoose.Schema({
     tokenExp: {
         type: Number,
     },
+    workspace: [ workspaceSchema ]
 });
 
 userSchema.pre('save', function(next) {
